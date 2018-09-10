@@ -2,5 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/AppServers/admiral_libs/c3p0-0.9.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/AppServers/admiral_libs/mchange-commons-java-0.2.11.jar"/>
+	<classpathentry kind="lib" path="C:/AppServers/admiral_libs/postgresql-42.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/AppServers/admiral_libs/slf4j-api-1.7.25.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,4 +1,4 @@
-package org.compiere.db;
+package org.admiral.db;
 
 import java.io.Serializable;
 
