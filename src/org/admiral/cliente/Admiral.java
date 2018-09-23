@@ -1,21 +1,27 @@
 package org.admiral.cliente;
 
+import org.admiral.db.CConnection;
 import org.admiral.util.Ini;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class Admiral {
 	
-	private final Logger log = LoggerFactory.getLogger(getClass());
+	static Logger log = LogManager.getRootLogger();
 	
 	public static synchronized boolean startup(boolean isCliente)
 	{
-		return false;
+		// System properties
+		Ini.loadProperties();
+		CConnection.get();
+		return true;
 	}
 	
 	public static void main(String[] args)
 	{
 		startup(true);
+		
 	}
 
 }
