@@ -45,7 +45,10 @@ public class CConnection implements Serializable
 	//get database
 	public AdmiralDatabase getDatabase()
 	{
-		if(m)
+		if(m_db == null)
+		{
+			
+		}
 	}
 	
 	private void setType(String type)

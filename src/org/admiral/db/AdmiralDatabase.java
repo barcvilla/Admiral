@@ -1,5 +1,8 @@
 package org.admiral.db;
 
-public interface AdmiralDatabase {
+import javax.sql.DataSource;
 
+public interface AdmiralDatabase {
+	public String getConnectionURL (CConnection connection);
+	public DataSource getDataSource(CConnection connection);
 }
