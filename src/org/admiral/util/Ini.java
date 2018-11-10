@@ -93,7 +93,6 @@ public final class Ini implements Serializable
 		}
 		
 		String value = s_prop.getProperty(key, "");
-		log.debug(key + " = " + value);
 		if(value == null)
 		{
 			return "";
