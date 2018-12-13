@@ -1,7 +1,10 @@
 package org.admiral.db;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.admiral.exception.DBException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -88,5 +91,40 @@ public final class DB {
         }
         return conn;
 
+    }
+    
+    /**
+     * Obtenemos int Value desde sql
+     * @param trxName - transaction
+     * @param sql - sql
+     * @param params - array de parametros
+     * @return primer valor o -1 si no se encuentra
+     */
+    public static int getSQLValueEx(String trxName, String sql, Object... params) throws DBException
+    {
+        int retValue = -1;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try
+        {
+            pstmt = prepareStatement(sql, trxName);
+            setParameters(pstmt, params);
+            rs = pstmt.executeQuery();
+            if(rs.next())
+            {
+                retValue = rs.getInt(1);
+            }
+        }
+        catch(SQLException e)
+        {
+            throw new DBException(e, sql);
+        }
+        finally
+        {
+            close(rs, pstmt);
+            rs = null;
+            pstmt = null;
+        }
+        return retValue;
     }
 }
